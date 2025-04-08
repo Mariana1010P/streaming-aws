@@ -74,4 +74,3 @@ terraform apply
 # 5. (opcional) Destruir la infraestructura
 terraform destroy
 
----
