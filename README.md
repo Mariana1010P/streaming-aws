@@ -38,6 +38,23 @@ Antes de iniciar, asegúrate de tener instalado:
 
 ---
 
+## 🔐 Consideraciones de seguridad
+
+- Asegúrese de restringir el acceso SSH a IP conocidas.
+- No dejes credenciales en texto plano ni en el código fuente.
+- Usa `terraform.tfvars` o variables de entorno para contraseñas sensibles.
+- Habilita HTTPS y autenticación en producción.
+
+---
+
+## 🐛 Problemas conocidos
+
+- El tipo de instancia debe ser compatible con la arquitectura de la AMI (ej: `t2.micro` con `x86_64`).
+- La AMI debe usar BIOS tradicional para evitar conflictos con UEFI si la instancia no está basada en Nitro.
+- Algunas configuraciones de seguridad pueden bloquear EC2 Instance Connect.
+
+---
+
 ## 🛠️ Instrucciones de uso
 
 ```bash
@@ -56,22 +73,5 @@ terraform apply
 
 # 5. (opcional) Destruir la infraestructura
 terraform destroy
-
----
-
-## 🔐 Consideraciones de seguridad
-
-- Asegúrese de restringir el acceso SSH a IP conocidas.
-- No dejes credenciales en texto plano ni en el código fuente.
-- Usa `terraform.tfvars` o variables de entorno para contraseñas sensibles.
-- Habilita HTTPS y autenticación en producción.
-
----
-
-## 🐛 Problemas conocidos
-
-- El tipo de instancia debe ser compatible con la arquitectura de la AMI (ej: `t2.micro` con `x86_64`).
-- La AMI debe usar BIOS tradicional para evitar conflictos con UEFI si la instancia no está basada en Nitro.
-- Algunas configuraciones de seguridad pueden bloquear EC2 Instance Connect.
 
 ---
